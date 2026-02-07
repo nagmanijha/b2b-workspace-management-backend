@@ -11,6 +11,7 @@ import {
 } from "../utils/appError";
 import MemberModel from "../models/member.model";
 import { ProviderEnum } from "../enums/account-provider.enum";
+import { RolePermissions } from "../utils/role-permission";
 
 export const loginOrCreateAccountService = async (data: {
   provider: string;
@@ -53,12 +54,16 @@ export const loginOrCreateAccountService = async (data: {
       });
       await workspace.save({ session });
 
-      const ownerRole = await RoleModel.findOne({
+      let ownerRole = await RoleModel.findOne({
         name: Roles.OWNER,
       }).session(session);
 
       if (!ownerRole) {
-        throw new NotFoundException("Owner role not found");
+        ownerRole = new RoleModel({
+          name: Roles.OWNER,
+          permissions: RolePermissions[Roles.OWNER],
+        });
+        await ownerRole.save({ session });
       }
 
       const member = new MemberModel({
@@ -124,12 +129,16 @@ export const registerUserService = async (body: {
     });
     await workspace.save({ session });
 
-    const ownerRole = await RoleModel.findOne({
+    let ownerRole = await RoleModel.findOne({
       name: Roles.OWNER,
     }).session(session);
 
     if (!ownerRole) {
-      throw new NotFoundException("Owner role not found");
+      ownerRole = new RoleModel({
+        name: Roles.OWNER,
+        permissions: RolePermissions[Roles.OWNER],
+      });
+      await ownerRole.save({ session });
     }
 
     const member = new MemberModel({
