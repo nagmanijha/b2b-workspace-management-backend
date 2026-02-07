@@ -3,11 +3,14 @@ import { Roles } from "../enums/role.enum";
 import MemberModel from "../models/member.model";
 import RoleModel from "../models/roles-permission.model";
 import WorkspaceModel from "../models/workspace.model";
+import TaskModel from "../models/task.model"; // Added import for TaskModel
+import mongoose from "mongoose"; // Added import for mongoose
 import {
   BadRequestException,
   NotFoundException,
   UnauthorizedException,
 } from "../utils/appError";
+
 
 export const getMemberRoleInWorkspace = async (
   userId: string,

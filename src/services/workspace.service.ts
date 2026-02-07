@@ -21,41 +21,55 @@ export const createWorkspaceService = async (
 ) => {
   const { name, description } = body;
 
-  const user = await UserModel.findById(userId);
+  const session = await mongoose.startSession();
+  session.startTransaction();
 
-  if (!user) {
-    throw new NotFoundException("User not found");
+  try {
+    const user = await UserModel.findById(userId).session(session);
+
+    if (!user) {
+      throw new NotFoundException("User not found");
+    }
+
+    const ownerRole = await RoleModel.findOne({ name: Roles.OWNER }).session(
+      session
+    );
+
+    if (!ownerRole) {
+      throw new NotFoundException("Owner role not found");
+    }
+
+    const workspace = new WorkspaceModel({
+      name: name,
+      description: description,
+      owner: user._id,
+    });
+
+    await workspace.save({ session });
+
+    const member = new MemberModel({
+      userId: user._id,
+      workspaceId: workspace._id,
+      role: ownerRole._id,
+      joinedAt: new Date(),
+    });
+
+    await member.save({ session });
+
+    user.currentWorkspace = workspace._id as mongoose.Types.ObjectId;
+    await user.save({ session });
+
+    await session.commitTransaction();
+    session.endSession();
+
+    return {
+      workspace,
+    };
+  } catch (error) {
+    await session.abortTransaction();
+    session.endSession();
+    throw error;
   }
-
-  const ownerRole = await RoleModel.findOne({ name: Roles.OWNER });
-
-  if (!ownerRole) {
-    throw new NotFoundException("Owner role not found");
-  }
-
-  const workspace = new WorkspaceModel({
-    name: name,
-    description: description,
-    owner: user._id,
-  });
-
-  await workspace.save();
-
-  const member = new MemberModel({
-    userId: user._id,
-    workspaceId: workspace._id,
-    role: ownerRole._id,
-    joinedAt: new Date(),
-  });
-
-  await member.save();
-
-  user.currentWorkspace = workspace._id as mongoose.Types.ObjectId;
-  await user.save();
-
-  return {
-    workspace,
-  };
 };
 
 //********************************
@@ -98,20 +112,50 @@ export const getWorkspaceByIdService = async (workspaceId: string) => {
 // GET ALL MEMEBERS IN WORKSPACE
 //**************** **************/
 
-export const getWorkspaceMembersService = async (workspaceId: string) => {
-  // Fetch all members of the workspace
+export const getWorkspaceMembersService = async (
+  workspaceId: string,
+  pageSize: number,
+  pageNumber: number,
+  keyword?: string
+) => {
+  const query: any = { workspaceId };
 
-  const members = await MemberModel.find({
-    workspaceId,
-  })
+  if (keyword) {
+    // We need to look up users who match the keyword
+    // Since MemberModel refs User, we can't do a direct join easily with simple find
+    // But for simplicity/performance in this specific schema, we can do a two-step lookup
+    // OR use an aggregation pipeline. Aggregation is better for "Search Member by Name"
+    // However, given the current setup, let's try to stick to a slightly simpler approach:
+    // 1. Find Users matching keyword
+    // 2. Find Members with those userIds
+
+    const users = await UserModel.find({
+      $or: [
+        { name: { $regex: keyword, $options: "i" } },
+        { email: { $regex: keyword, $options: "i" } },
+      ],
+    }).select("_id");
+
+    const userIds = users.map((u) => u._id);
+    query.userId = { $in: userIds };
+  }
+
+  const totalCount = await MemberModel.countDocuments(query);
+  const totalPages = Math.ceil(totalCount / pageSize);
+  const skip = (pageNumber - 1) * pageSize;
+
+  const members = await MemberModel.find(query)
     .populate("userId", "name email profilePicture -password")
-    .populate("role", "name");
+    .populate("role", "name")
+    .skip(skip)
+    .limit(pageSize)
+    .sort({ joinedAt: -1 });
 
   const roles = await RoleModel.find({}, { name: 1, _id: 1 })
     .select("-permission")
     .lean();
 
-  return { members, roles };
+  return { members, roles, totalCount, totalPages, skip };
 };
 
 export const getWorkspaceAnalyticsService = async (workspaceId: string) => {
@@ -212,7 +256,7 @@ export const deleteWorkspaceService = async (
     }
 
     // Check if the user owns the workspace
-    if (!workspace.owner.equals(new mongoose.Types.ObjectId(userId))) { 
+    if (!workspace.owner.equals(new mongoose.Types.ObjectId(userId))) {
       throw new BadRequestException(
         "You are not authorized to delete this workspace"
       );
@@ -265,18 +309,39 @@ export const removeMemberService = async (
   workspaceId: string,
   memberId: string
 ) => {
-  const member = await MemberModel.findOne({
-    userId: memberId,
-    workspaceId: workspaceId,
-  });
+  // Use a transaction to ensure atomicity
+  const session = await mongoose.startSession();
+  session.startTransaction();
 
-  if (!member) {
-    throw new NotFoundException("Member not found in the workspace");
+  try {
+    const member = await MemberModel.findOne({
+      userId: memberId,
+      workspaceId: workspaceId,
+    }).session(session);
+
+    if (!member) {
+      throw new NotFoundException("Member not found in the workspace");
+    }
+
+    // Delete the member
+    await member.deleteOne({ session });
+
+    // Unassign tasks assigned to this member in this workspace
+    // This prevents tasks from being assigned to a non-member
+    await TaskModel.updateMany(
+      { workspace: workspaceId, assignedTo: memberId },
+      { $set: { assignedTo: null } }
+    ).session(session);
+
+    await session.commitTransaction();
+    session.endSession();
+
+    return {
+      message: "Member removed from workspace successfully",
+    };
+  } catch (error) {
+    await session.abortTransaction();
+    session.endSession();
+    throw error;
   }
-
-  await member.deleteOne();
-
-  return {
-    message: "Member removed from workspace successfully",
-  };
 };

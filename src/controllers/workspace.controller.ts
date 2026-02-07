@@ -22,6 +22,10 @@ import { getMemberRoleInWorkspace } from "../services/member.service";
 import { Permissions } from "../enums/role.enum";
 import { roleGuard } from "../utils/roleGuard";
 import { updateWorkspaceSchema } from "../validation/workspace.validation";
+import {
+  getWorkspaceLogsService,
+  logActivity,
+} from "../services/audit-log.service";
 
 export const createWorkspaceController = asyncHandler(
   async (req: Request, res: Response) => {
@@ -29,6 +33,14 @@ export const createWorkspaceController = asyncHandler(
 
     const userId = req.user?._id;
     const { workspace } = await createWorkspaceService(userId, body);
+
+    await logActivity(
+      workspace._id as string,
+      userId,
+      "CREATED_WORKSPACE",
+      workspace._id as string,
+      "Workspace"
+    );
 
     return res.status(HTTPSTATUS.CREATED).json({
       message: "Workspace created successfully",
@@ -76,12 +88,30 @@ export const getWorkspaceMembersController = asyncHandler(
     const { role } = await getMemberRoleInWorkspace(userId, workspaceId);
     roleGuard(role, [Permissions.VIEW_ONLY]);
 
-    const { members, roles } = await getWorkspaceMembersService(workspaceId);
+    const pageSize = parseInt(req.query.pageSize as string) || 10;
+    const pageNumber = parseInt(req.query.pageNumber as string) || 1;
+    const keyword = (req.query.keyword as string) || undefined;
+
+    const { members, roles, totalCount, totalPages, skip } =
+      await getWorkspaceMembersService(
+        workspaceId,
+        pageSize,
+        pageNumber,
+        keyword
+      );
 
     return res.status(HTTPSTATUS.OK).json({
       message: "Workspace members retrieved successfully",
       members,
       roles,
+      pagination: {
+        totalCount,
+        pageSize,
+        pageNumber,
+        totalPages,
+        skip,
+        limit: pageSize,
+      },
     });
   }
 );
@@ -103,6 +133,23 @@ export const getWorkspaceAnalyticsController = asyncHandler(
   }
 );
 
+export const getWorkspaceAuditLogsController = asyncHandler(
+  async (req: Request, res: Response) => {
+    const workspaceId = workspaceIdSchema.parse(req.params.id);
+    const userId = req.user?._id;
+
+    const { role } = await getMemberRoleInWorkspace(userId, workspaceId);
+    roleGuard(role, [Permissions.VIEW_ONLY]);
+
+    const { logs } = await getWorkspaceLogsService(workspaceId);
+
+    return res.status(HTTPSTATUS.OK).json({
+      message: "Workspace audit logs retrieved successfully",
+      logs,
+    });
+  }
+);
+
 export const changeWorkspaceMemberRoleController = asyncHandler(
   async (req: Request, res: Response) => {
     const workspaceId = workspaceIdSchema.parse(req.params.id);
@@ -117,6 +164,14 @@ export const changeWorkspaceMemberRoleController = asyncHandler(
       workspaceId,
       memberId,
       roleId
+    );
+
+    await logActivity(
+      workspaceId,
+      userId,
+      "CHANGED_MEMBER_ROLE",
+      memberId,
+      "Member"
     );
 
     return res.status(HTTPSTATUS.OK).json({
@@ -163,6 +218,14 @@ export const deleteWorkspaceByIdController = asyncHandler(
       userId
     );
 
+    await logActivity(
+      workspaceId,
+      userId,
+      "DELETED_WORKSPACE",
+      workspaceId,
+      "Workspace"
+    );
+
     return res.status(HTTPSTATUS.OK).json({
       message: "Workspace deleted successfully",
       currentWorkspace,
@@ -197,6 +260,14 @@ export const removeMemberFromWorkspaceController = asyncHandler(
     roleGuard(role, [Permissions.REMOVE_MEMBER]);
 
     await removeMemberService(workspaceId, memberId);
+
+    await logActivity(
+      workspaceId,
+      userId,
+      "REMOVED_MEMBER",
+      memberId,
+      "Member"
+    );
 
     return res.status(HTTPSTATUS.OK).json({
       message: "Member removed from workspace successfully",

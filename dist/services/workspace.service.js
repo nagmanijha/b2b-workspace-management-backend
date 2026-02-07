@@ -200,16 +200,32 @@ const deleteWorkspaceService = async (workspaceId, userId) => {
 };
 exports.deleteWorkspaceService = deleteWorkspaceService;
 const removeMemberService = async (workspaceId, memberId) => {
-    const member = await member_model_1.default.findOne({
-        userId: memberId,
-        workspaceId: workspaceId,
-    });
-    if (!member) {
-        throw new appError_1.NotFoundException("Member not found in the workspace");
+    // Use a transaction to ensure atomicity
+    const session = await mongoose_1.default.startSession();
+    session.startTransaction();
+    try {
+        const member = await member_model_1.default.findOne({
+            userId: memberId,
+            workspaceId: workspaceId,
+        }).session(session);
+        if (!member) {
+            throw new appError_1.NotFoundException("Member not found in the workspace");
+        }
+        // Delete the member
+        await member.deleteOne({ session });
+        // Unassign tasks assigned to this member in this workspace
+        // This prevents tasks from being assigned to a non-member
+        await task_model_1.default.updateMany({ workspace: workspaceId, assignedTo: memberId }, { $set: { assignedTo: null } }).session(session);
+        await session.commitTransaction();
+        session.endSession();
+        return {
+            message: "Member removed from workspace successfully",
+        };
     }
-    await member.deleteOne();
-    return {
-        message: "Member removed from workspace successfully",
-    };
+    catch (error) {
+        await session.abortTransaction();
+        session.endSession();
+        throw error;
+    }
 };
 exports.removeMemberService = removeMemberService;

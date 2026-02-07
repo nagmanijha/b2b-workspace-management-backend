@@ -9,7 +9,8 @@ import {
   getWorkspaceMembersController,
   updateWorkspaceByIdController,
   removeMemberFromWorkspaceController,
-  leaveWorkspaceByIdController
+  leaveWorkspaceByIdController,
+  getWorkspaceAuditLogsController,
 } from "../controllers/workspace.controller";
 
 const workspaceRoutes = Router();
@@ -29,6 +30,7 @@ workspaceRoutes.get("/all", getAllWorkspacesUserIsMemberController);
 
 workspaceRoutes.get("/members/:id", getWorkspaceMembersController);
 workspaceRoutes.get("/analytics/:id", getWorkspaceAnalyticsController);
+workspaceRoutes.get("/logs/:id", getWorkspaceAuditLogsController);
 
 workspaceRoutes.get("/:id", getWorkspaceByIdController);
 

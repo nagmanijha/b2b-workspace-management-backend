@@ -178,11 +178,23 @@ export const deleteProjectService = async (
     );
   }
 
-  await project.deleteOne();
+  const session = await mongoose.startSession();
+  session.startTransaction();
 
-  await TaskModel.deleteMany({
-    project: project._id,
-  });
+  try {
+    await project.deleteOne({ session });
 
-  return project;
+    await TaskModel.deleteMany({
+      project: project._id,
+    }).session(session);
+
+    await session.commitTransaction();
+    session.endSession();
+
+    return project;
+  } catch (error) {
+    await session.abortTransaction();
+    session.endSession();
+    throw error;
+  }
 };

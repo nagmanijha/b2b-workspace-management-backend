@@ -19,6 +19,7 @@ import {
 } from "../services/project.service";
 import { HTTPSTATUS } from "../config/http.config";
 import { RolePermissions } from "../utils/role-permission";
+import { logActivity } from "../services/audit-log.service";
 
 export const createProjectController = asyncHandler(
   async (req: Request, res: Response) => {
@@ -32,6 +33,14 @@ export const createProjectController = asyncHandler(
     roleGuard(role, [Permissions.CREATE_PROJECT]);
 
     const { project } = await createProjectService(userId, workspaceId, body);
+
+    await logActivity(
+      workspaceId,
+      userId,
+      "CREATED_PROJECT",
+      project._id as string,
+      "Project"
+    );
 
     return res.status(HTTPSTATUS.CREATED).json({
       message: "Project created successfully",
@@ -151,6 +160,14 @@ export const deleteProjectController = asyncHandler(
     roleGuard(role, [Permissions.DELETE_PROJECT]);
 
     await deleteProjectService(workspaceId, projectId);
+
+    await logActivity(
+      workspaceId,
+      userId,
+      "DELETED_PROJECT",
+      projectId,
+      "Project"
+    );
 
     return res.status(HTTPSTATUS.OK).json({
       message: "Project deleted successfully",
