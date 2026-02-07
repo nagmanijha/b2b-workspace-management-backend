@@ -72,5 +72,7 @@ app.use(errorHandler);
 
 app.listen(config.PORT, async () => {
   console.log(`Server listening on port ${config.PORT} in ${config.NODE_ENV}`);
+  console.log(`Base Path is: "${BASE_PATH}"`);
+  console.log(`Frontend Origin is: "${config.FRONTEND_ORIGIN}"`);
   await connectDatabase();
 });
