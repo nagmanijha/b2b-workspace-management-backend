@@ -1,5 +1,6 @@
 import passport from "passport";
 import { Request } from "express";
+import UserModel from "../models/user.model";
 import { Strategy as GoogleStrategy } from "passport-google-oauth20";
 import { Strategy as LocalStrategy } from "passport-local";
 
@@ -62,5 +63,13 @@ passport.use(
   )
 );
 
-passport.serializeUser((user: any, done) => done(null, user));
-passport.deserializeUser((user: any, done) => done(null, user));
+passport.serializeUser((user: any, done) => done(null, user._id));
+
+passport.deserializeUser(async (id: any, done) => {
+  try {
+    const user = await UserModel.findById(id);
+    done(null, user);
+  } catch (error) {
+    done(error, null);
+  }
+});
