@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TaskFlow - Project Management for Modern Teams</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#5048e5",
+                        "background-light": "#f9f8fb",
+                        "background-dark": "#121121",
+                        "text-main": "#0f0e1b",
+                        "text-muted": "#545095",
+                        "border-light": "#e8e8f3",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "sans": ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem", 
+                        "lg": "1rem", 
+                        "xl": "1.5rem", 
+                        "2xl": "2rem",
+                        "full": "9999px"
+                    },
+                    boxShadow: {
+                        "soft": "0 4px 20px -2px rgba(80, 72, 229, 0.08)",
+                        "glow": "0 0 15px rgba(80, 72, 229, 0.3)",
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-text-main dark:text-white antialiased overflow-x-hidden">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<!-- Navigation -->
+<div class="w-full bg-background-light dark:bg-background-dark/95 backdrop-blur-sm sticky top-0 z-50 border-b border-border-light dark:border-white/10">
+<div class="layout-container flex justify-center w-full">
+<div class="layout-content-container flex flex-col max-w-[1280px] flex-1 px-4 sm:px-6 lg:px-8">
+<header class="flex items-center justify-between whitespace-nowrap py-4">
+<div class="flex items-center gap-3 text-text-main dark:text-white">
+<div class="size-8 text-primary">
+<span class="material-symbols-outlined !text-[32px]">task_alt</span>
+</div>
+<h2 class="text-xl font-bold leading-tight tracking-tight">TaskFlow</h2>
+</div>
+<div class="hidden lg:flex items-center gap-8">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Features</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Solutions</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Pricing</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Resources</a>
+</div>
+<div class="flex gap-3">
+<button class="hidden sm:flex h-10 px-5 items-center justify-center rounded-full bg-transparent hover:bg-gray-100 dark:hover:bg-white/10 text-sm font-bold transition-colors">
+                                Log In
+                            </button>
+<button class="flex h-10 px-6 items-center justify-center rounded-full bg-primary hover:bg-primary/90 text-white text-sm font-bold shadow-lg shadow-primary/30 transition-all transform hover:scale-105">
+                                Get Started
+                            </button>
+</div>
+</header>
+</div>
+</div>
+</div>
+<!-- Main Content Wrapper -->
+<main class="flex flex-col items-center w-full">
+<!-- Hero Section with Background -->
+<section class="w-full px-4 sm:px-6 lg:px-8 py-12 lg:py-20 flex justify-center bg-white dark:bg-background-dark border-b border-border-light dark:border-white/5">
+<div class="max-w-[1280px] w-full flex flex-col lg:flex-row gap-12 items-center">
+<div class="flex-1 flex flex-col gap-6 text-center lg:text-left">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider self-center lg:self-start border border-primary/20">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                            New Features Released
+                        </div>
+<h1 class="text-4xl sm:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight text-text-main dark:text-white">
+                            Manage projects without the <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-500">chaos.</span>
+</h1>
+<p class="text-lg text-text-muted dark:text-gray-400 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                            TaskFlow brings your team's work together in one shared workspace. Powerful, flexible, and scalable for teams of all sizes.
+                        </p>
+<div class="flex flex-col sm:flex-row gap-4 pt-4 justify-center lg:justify-start">
+<button class="h-12 px-8 rounded-full bg-text-main dark:bg-white text-white dark:text-black font-bold text-base hover:shadow-xl transition-all">
+                                Start Free Trial
+                            </button>
+<button class="h-12 px-8 rounded-full border border-gray-200 dark:border-white/20 hover:border-primary/50 bg-white dark:bg-white/5 font-bold text-base flex items-center justify-center gap-2 transition-all">
+<span class="material-symbols-outlined !text-[20px]">play_circle</span>
+                                Watch Demo
+                            </button>
+</div>
+</div>
+<div class="flex-1 w-full max-w-[600px] lg:max-w-none relative">
+<div class="relative rounded-2xl overflow-hidden shadow-2xl border border-border-light dark:border-white/10 bg-white dark:bg-gray-900 aspect-[4/3]">
+<div class="absolute inset-0 bg-gradient-to-tr from-primary/5 to-purple-500/5 z-0"></div>
+<!-- Simulated Dashboard UI -->
+<div class="p-6 relative z-10 flex flex-col h-full">
+<div class="flex items-center gap-4 mb-6 border-b border-gray-100 dark:border-white/5 pb-4">
+<div class="w-3 h-3 rounded-full bg-red-400"></div>
+<div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+<div class="w-3 h-3 rounded-full bg-green-400"></div>
+<div class="ml-auto w-24 h-2 rounded-full bg-gray-100 dark:bg-white/10"></div>
+</div>
+<div class="flex gap-6 h-full">
+<div class="w-16 flex flex-col gap-4 border-r border-gray-100 dark:border-white/5 pr-4">
+<div class="w-10 h-10 rounded-lg bg-primary/10"></div>
+<div class="w-10 h-10 rounded-lg bg-gray-50 dark:bg-white/5"></div>
+<div class="w-10 h-10 rounded-lg bg-gray-50 dark:bg-white/5"></div>
+</div>
+<div class="flex-1 flex flex-col gap-4">
+<div class="flex justify-between items-center">
+<div class="w-32 h-6 rounded bg-gray-100 dark:bg-white/10"></div>
+<div class="w-20 h-8 rounded-full bg-primary text-white text-xs flex items-center justify-center font-bold">New Task</div>
+</div>
+<div class="flex gap-4 mt-2">
+<div class="flex-1 p-4 rounded-xl bg-gray-50 dark:bg-white/5 border border-dashed border-gray-200 dark:border-white/10"></div>
+<div class="flex-1 p-4 rounded-xl bg-gray-50 dark:bg-white/5 border border-dashed border-gray-200 dark:border-white/10"></div>
+<div class="flex-1 p-4 rounded-xl bg-gray-50 dark:bg-white/5 border border-dashed border-gray-200 dark:border-white/10"></div>
+</div>
+<div class="mt-auto h-32 w-full rounded-xl bg-gradient-to-r from-primary/10 to-transparent"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Social Proof Section -->
+<section class="w-full py-10 border-b border-border-light dark:border-white/5 bg-white dark:bg-background-dark/50">
+<div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<p class="text-sm font-semibold text-text-muted dark:text-gray-500 uppercase tracking-widest mb-8">Trusted by engineering teams at</p>
+<div class="flex flex-wrap justify-center items-center gap-x-12 gap-y-8 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+<!-- Logos styled as text/icons for simplicity, in a real scenario these would be SVGs -->
+<div class="flex items-center gap-2 text-xl font-bold text-gray-800 dark:text-white">
+<span class="material-symbols-outlined">diamond</span> Acme Corp
+                        </div>
+<div class="flex items-center gap-2 text-xl font-bold text-gray-800 dark:text-white">
+<span class="material-symbols-outlined">deployed_code</span> GlobalTech
+                        </div>
+<div class="flex items-center gap-2 text-xl font-bold text-gray-800 dark:text-white">
+<span class="material-symbols-outlined">all_inclusive</span> InfiniteLoop
+                        </div>
+<div class="flex items-center gap-2 text-xl font-bold text-gray-800 dark:text-white">
+<span class="material-symbols-outlined">rocket_launch</span> StarShip
+                        </div>
+<div class="flex items-center gap-2 text-xl font-bold text-gray-800 dark:text-white">
+<span class="material-symbols-outlined">bolt</span> FastScale
+                        </div>
+</div>
+</div>
+</section>
+<!-- Features Grid Section -->
+<section class="w-full py-20 px-4 sm:px-6 lg:px-8 bg-background-light dark:bg-background-dark">
+<div class="max-w-[1280px] mx-auto flex flex-col gap-12">
+<!-- Section Header -->
+<div class="text-center max-w-3xl mx-auto flex flex-col gap-4">
+<h2 class="text-3xl md:text-4xl font-black text-text-main dark:text-white tracking-tight leading-tight">
+                            Powerful features for modern workflows
+                        </h2>
+<p class="text-lg text-text-muted dark:text-gray-400">
+                            Everything you need to manage complex projects. Secure, scalable, and designed for speed so your team can focus on shipping.
+                        </p>
+</div>
+<!-- 3-Column Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+<!-- Feature 1: Multi-Workspace -->
+<div class="group flex flex-col p-8 rounded-2xl bg-white dark:bg-white/5 border border-border-light dark:border-white/10 hover:border-primary/30 dark:hover:border-primary/50 hover:shadow-soft transition-all duration-300">
+<div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined !text-[28px]">layers</span>
+</div>
+<h3 class="text-xl font-bold text-text-main dark:text-white mb-3">Multi-Workspace</h3>
+<p class="text-text-muted dark:text-gray-400 leading-relaxed">
+                                Manage distinct environments for different clients with ease. Switch context instantly without losing your place.
+                            </p>
+</div>
+<!-- Feature 2: Role-Based Access -->
+<div class="group flex flex-col p-8 rounded-2xl bg-white dark:bg-white/5 border border-border-light dark:border-white/10 hover:border-primary/30 dark:hover:border-primary/50 hover:shadow-soft transition-all duration-300">
+<div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined !text-[28px]">verified_user</span>
+</div>
+<h3 class="text-xl font-bold text-text-main dark:text-white mb-3">Role-Based Access</h3>
+<p class="text-text-muted dark:text-gray-400 leading-relaxed">
+                                Granular permissions for admins, editors, and guests. Control exactly who sees what with enterprise-grade security.
+                            </p>
+</div>
+<!-- Feature 3: Real-Time Analytics -->
+<div class="group flex flex-col p-8 rounded-2xl bg-white dark:bg-white/5 border border-border-light dark:border-white/10 hover:border-primary/30 dark:hover:border-primary/50 hover:shadow-soft transition-all duration-300">
+<div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined !text-[28px]">monitoring</span>
+</div>
+<h3 class="text-xl font-bold text-text-main dark:text-white mb-3">Real-Time Analytics</h3>
+<p class="text-text-muted dark:text-gray-400 leading-relaxed">
+                                Live dashboards to track velocity and burndown charts. Make data-driven decisions without leaving the platform.
+                            </p>
+</div>
+<!-- Feature 4: Secure OAuth -->
+<div class="group flex flex-col p-8 rounded-2xl bg-white dark:bg-white/5 border border-border-light dark:border-white/10 hover:border-primary/30 dark:hover:border-primary/50 hover:shadow-soft transition-all duration-300">
+<div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined !text-[28px]">lock</span>
+</div>
+<h3 class="text-xl font-bold text-text-main dark:text-white mb-3">Secure OAuth</h3>
+<p class="text-text-muted dark:text-gray-400 leading-relaxed">
+                                Enterprise-grade authentication standards for peace of mind. SSO and 2FA support included out of the box.
+                            </p>
+</div>
+<!-- Feature 5: Activity Logs -->
+<div class="group flex flex-col p-8 rounded-2xl bg-white dark:bg-white/5 border border-border-light dark:border-white/10 hover:border-primary/30 dark:hover:border-primary/50 hover:shadow-soft transition-all duration-300">
+<div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined !text-[28px]">history</span>
+</div>
+<h3 class="text-xl font-bold text-text-main dark:text-white mb-3">Activity Logs</h3>
+<p class="text-text-muted dark:text-gray-400 leading-relaxed">
+                                Comprehensive audit trails for every action taken within the workspace. Never wonder "who changed that?" again.
+                            </p>
+</div>
+<!-- Feature 6: Team Collaboration -->
+<div class="group flex flex-col p-8 rounded-2xl bg-white dark:bg-white/5 border border-border-light dark:border-white/10 hover:border-primary/30 dark:hover:border-primary/50 hover:shadow-soft transition-all duration-300">
+<div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined !text-[28px]">group</span>
+</div>
+<h3 class="text-xl font-bold text-text-main dark:text-white mb-3">Team Collaboration</h3>
+<p class="text-text-muted dark:text-gray-400 leading-relaxed">
+                                Real-time commenting, @mentions, and threads on every task. Keep communication contextual and efficient.
+                            </p>
+</div>
+</div>
+<!-- Bottom CTA -->
+<div class="flex justify-center mt-8">
+<a class="inline-flex items-center gap-2 text-primary font-bold hover:text-primary/80 transition-colors" href="#">
+                            View all features 
+                            <span class="material-symbols-outlined !text-[20px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</section>
+<!-- Final CTA Section -->
+<section class="w-full px-4 sm:px-6 lg:px-8 py-24 bg-white dark:bg-background-dark border-t border-border-light dark:border-white/10">
+<div class="max-w-4xl mx-auto text-center flex flex-col items-center gap-8">
+<h2 class="text-3xl md:text-5xl font-black text-text-main dark:text-white tracking-tight">
+                        Ready to streamline your projects?
+                    </h2>
+<p class="text-lg text-text-muted dark:text-gray-400 max-w-2xl">
+                        Join over 10,000+ teams who use TaskFlow to deliver faster. Start your 14-day free trial today. No credit card required.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-4 w-full justify-center">
+<button class="h-14 px-8 rounded-full bg-primary hover:bg-primary/90 text-white font-bold text-lg shadow-lg shadow-primary/30 transition-all transform hover:scale-105 min-w-[200px]">
+                            Get Started Free
+                        </button>
+<button class="h-14 px-8 rounded-full bg-background-light dark:bg-white/5 hover:bg-gray-200 dark:hover:bg-white/10 text-text-main dark:text-white font-bold text-lg transition-all min-w-[200px]">
+                            Contact Sales
+                        </button>
+</div>
+</div>
+</section>
+</main>
+<footer class="w-full py-12 px-4 sm:px-6 lg:px-8 bg-background-light dark:bg-black/20 border-t border-border-light dark:border-white/10">
+<div class="max-w-[1280px] mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex items-center gap-2 text-text-main dark:text-white opacity-80">
+<span class="material-symbols-outlined">task_alt</span>
+<span class="font-bold text-lg">TaskFlow</span>
+</div>
+<div class="text-sm text-text-muted dark:text-gray-500">
+                    © 2024 TaskFlow Inc. All rights reserved.
+                </div>
+<div class="flex gap-6">
+<a class="text-text-muted hover:text-primary transition-colors" href="#"><span class="sr-only">Twitter</span>
+<svg class="h-5 w-5 fill-current" viewbox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.84 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"></path></svg>
+</a>
+<a class="text-text-muted hover:text-primary transition-colors" href="#"><span class="sr-only">GitHub</span>
+<svg class="h-5 w-5 fill-current" viewbox="0 0 24 24"><path clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" fill-rule="evenodd"></path></svg>
+</a>
+</div>
+</div>
+</footer>
+</div>
+</body></html>

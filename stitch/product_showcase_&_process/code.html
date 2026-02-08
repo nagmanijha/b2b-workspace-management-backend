@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TaskMaster - Product Showcase</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#5048e5",
+                        "primary-dark": "#3b34b5",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#121121",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1e1d2e",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-900 dark:text-white antialiased transition-colors duration-200">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<!-- Navigation -->
+<div class="w-full border-b border-gray-200 dark:border-gray-800 bg-surface-light dark:bg-surface-dark sticky top-0 z-50">
+<div class="max-w-[1280px] mx-auto px-4 md:px-8">
+<header class="flex items-center justify-between h-20">
+<div class="flex items-center gap-3">
+<div class="size-8 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-3xl">task_alt</span>
+</div>
+<h2 class="text-xl font-bold tracking-tight text-gray-900 dark:text-white">TaskMaster</h2>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors" href="#">Features</a>
+<a class="text-sm font-medium text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors" href="#">Solutions</a>
+<a class="text-sm font-medium text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors" href="#">Pricing</a>
+<a class="text-sm font-medium text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors" href="#">Resources</a>
+</nav>
+<div class="flex gap-3">
+<button class="hidden sm:flex items-center justify-center rounded-full px-5 py-2.5 bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-900 dark:text-white text-sm font-bold transition-colors">
+                            Log In
+                        </button>
+<button class="flex items-center justify-center rounded-full px-5 py-2.5 bg-primary hover:bg-primary-dark text-white text-sm font-bold transition-colors shadow-lg shadow-primary/30">
+                            Get Started
+                        </button>
+</div>
+</header>
+</div>
+</div>
+<!-- Main Content -->
+<main class="flex-grow flex flex-col items-center">
+<!-- Hero Showcase Section -->
+<section class="w-full max-w-[1280px] px-4 md:px-8 pt-16 pb-12 flex flex-col items-center text-center">
+<div class="max-w-3xl mb-12 space-y-4">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wide">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                        New Feature 2.0
+                    </div>
+<h1 class="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-gray-900 dark:text-white leading-tight">
+                        Designed for <span class="text-primary">Clarity</span>
+</h1>
+<p class="text-lg md:text-xl text-gray-600 dark:text-gray-400 font-normal leading-relaxed max-w-2xl mx-auto">
+                        Visualize your workflow with a board that adapts to your team's needs. From simple tasks to complex roadmaps, see everything at a glance.
+                    </p>
+</div>
+<!-- Product Mockup Container -->
+<div class="w-full relative group perspective-1000">
+<!-- Decorative background glow -->
+<div class="absolute -inset-1 bg-gradient-to-r from-primary to-purple-600 rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
+<!-- Browser Window Mockup -->
+<div class="relative w-full bg-surface-light dark:bg-surface-dark rounded-xl shadow-2xl overflow-hidden border border-gray-200 dark:border-gray-800">
+<!-- Browser Toolbar -->
+<div class="flex items-center gap-2 px-4 py-3 border-b border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-[#1a1924]">
+<div class="flex gap-1.5">
+<div class="w-3 h-3 rounded-full bg-red-400"></div>
+<div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+<div class="w-3 h-3 rounded-full bg-green-400"></div>
+</div>
+<div class="ml-4 flex-1 flex justify-center">
+<div class="px-3 py-1 bg-white dark:bg-gray-800 rounded-md text-xs text-gray-400 font-medium flex items-center gap-2 w-full max-w-sm justify-center shadow-sm">
+<span class="material-symbols-outlined text-[14px]">lock</span>
+                                    app.taskmaster.io/board/q3-roadmap
+                                </div>
+</div>
+</div>
+<!-- App Interface Mockup -->
+<div class="p-6 md:p-8 bg-gray-50/50 dark:bg-[#15141f]">
+<!-- App Header -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+<div>
+<h3 class="text-2xl font-bold text-gray-900 dark:text-white">Q3 Product Roadmap</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Managed by Product Team • 12 Members</p>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex -space-x-2">
+<img class="w-8 h-8 rounded-full border-2 border-white dark:border-gray-800 object-cover" data-alt="Team member portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWftsCJUQg2gCgQUD4SyC2i8wpr1ByvSgkOhYELF_jHH5oqiWxAQ-nQaVxOcMS2jl7Vbh1qF94c9qHB95yFdJGVXOUrbWtdoEj5bfJCic9-L5p_GLaK6skbaPIae06VphG4z1_xrYBuvHeHUccr-b1gtd9gda5Z8eOeSYZfnsywZ0YVngISW_Onz8Lue1b1oBplig8fd8DmQHjMWM11QTi1qdTvZNrc9i5_4nLbNB2-AHP3L0DKgSVoozeKVGjlpfIjOWdFZflFwU"/>
+<img class="w-8 h-8 rounded-full border-2 border-white dark:border-gray-800 object-cover" data-alt="Team member portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAncYQRFSqLriD9pYeQ4HKkgWKwmFsIMoZtFJ9HBAFBulLOhVng830WDTd83vURNXQOQuM8DQ3H2djOiArBAkfH66RMvQi-F_DaWZhCRaf_hsHbvicProEwpevG2zMXqK1R2iQyqbMrWZYszkebvbAPlIS6FLjwbdUWQSUxFPjFNeEFTKF1LVqKdRBKM0ZTciXGYtJ-xHNlFhYeG53yVkU2p8Zt8urlR5J-PPCAkhs82j53pR9ng00Vacye0QjrzMaxuyPmHgZrLeo"/>
+<img class="w-8 h-8 rounded-full border-2 border-white dark:border-gray-800 object-cover" data-alt="Team member portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsMHYNiKbPkw9cCmm6MLUedqmqz4q7JfWoyAztFp6Yp_svfZQYPoKaDGr_OEHPqVo9sWnT5_Au92zU-lpy0TsYg2FlqC84oVwKCyoNwFPUi-EVgt8ylV2eQVm2zOPLxzw6IxnZAFskrCYDOxdozlxT0DCQJjAxtDZAgLl2BRUg6xeYoHuBPJY2NV6YID2mzEtsP4tX2xIlK6rIzXXwmroSzTE_6JwuOwHW7zpvvC5PH8k5Dy-ogOW4D_Fy5Gr4xChAKkvGy6mM2j0"/>
+<div class="w-8 h-8 rounded-full border-2 border-white dark:border-gray-800 bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-xs font-bold text-gray-600 dark:text-gray-300">+4</div>
+</div>
+<button class="bg-primary hover:bg-primary-dark text-white px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2 transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                                        New Task
+                                    </button>
+</div>
+</div>
+<!-- Kanban Board -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 overflow-x-auto pb-4">
+<!-- Column 1: Backlog -->
+<div class="flex flex-col gap-3 min-w-[280px]">
+<div class="flex items-center justify-between px-1 mb-1">
+<span class="text-sm font-bold text-gray-500 uppercase tracking-wider flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-gray-400"></span> Backlog
+                                        </span>
+<span class="text-xs font-medium px-2 py-0.5 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300">3</span>
+</div>
+<!-- Card 1 -->
+<div class="bg-white dark:bg-[#1e1d2e] p-4 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 hover:shadow-md transition-shadow cursor-pointer group">
+<div class="flex justify-between items-start mb-2">
+<span class="text-xs font-semibold px-2 py-1 rounded bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-300">Design</span>
+<span class="material-symbols-outlined text-gray-400 text-[16px] opacity-0 group-hover:opacity-100">more_horiz</span>
+</div>
+<h4 class="text-sm font-bold text-gray-900 dark:text-white mb-2">Update icon set for mobile app</h4>
+<div class="flex items-center justify-between mt-3">
+<div class="flex items-center gap-1 text-gray-400 text-xs">
+<span class="material-symbols-outlined text-[14px]">chat_bubble</span> 2
+                                            </div>
+<img class="w-6 h-6 rounded-full object-cover" data-alt="Assignee portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBw1qs-ZF7VsTxfWdY3RnGJxAF6Q9vVL1lsPeZpTvUTigPyet2V1OpVKaG8KEzUyg0gk6ROM2asDIM45kPo-6uRDhe2DE0wCglIyO45xiynX3fINayYe55KLJyYn3GV3VQd_xN7BAoiVXWydJKCjAnhCwJwDvI9x55ffNEhIF8TWfYmIJ4q3-_NDpOUBO6j_Cttm7k_3it-y3-qrStXICSEYLDfUHpfXrKJ53wVbK6aZTBUL3DqPlOp6DaTuW4lJF4PuMOCR955dMk"/>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-white dark:bg-[#1e1d2e] p-4 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 hover:shadow-md transition-shadow cursor-pointer group">
+<div class="flex justify-between items-start mb-2">
+<span class="text-xs font-semibold px-2 py-1 rounded bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300">Research</span>
+</div>
+<h4 class="text-sm font-bold text-gray-900 dark:text-white mb-2">User interview synthesis</h4>
+<div class="flex items-center justify-between mt-3">
+<div class="flex items-center gap-1 text-gray-400 text-xs">
+<span class="material-symbols-outlined text-[14px]">attach_file</span> 1
+                                            </div>
+<div class="w-6 h-6 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center text-[10px] font-bold">JD</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-white dark:bg-[#1e1d2e] p-4 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 hover:shadow-md transition-shadow cursor-pointer group opacity-60">
+<div class="h-2 w-1/3 bg-gray-100 dark:bg-gray-700 rounded mb-3"></div>
+<div class="h-4 w-3/4 bg-gray-100 dark:bg-gray-700 rounded mb-2"></div>
+<div class="h-4 w-1/2 bg-gray-100 dark:bg-gray-700 rounded"></div>
+</div>
+</div>
+<!-- Column 2: In Progress -->
+<div class="flex flex-col gap-3 min-w-[280px]">
+<div class="flex items-center justify-between px-1 mb-1">
+<span class="text-sm font-bold text-primary uppercase tracking-wider flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span> In Progress
+                                        </span>
+<span class="text-xs font-medium px-2 py-0.5 rounded-full bg-primary/10 text-primary">2</span>
+</div>
+<!-- Card 1 -->
+<div class="bg-white dark:bg-[#1e1d2e] p-4 rounded-xl shadow-md border-l-4 border-l-primary border-y border-r border-gray-100 dark:border-gray-800 hover:shadow-lg transition-shadow cursor-pointer group relative">
+<div class="flex justify-between items-start mb-2">
+<span class="text-xs font-semibold px-2 py-1 rounded bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300">Dev</span>
+<span class="material-symbols-outlined text-gray-400 text-[16px] opacity-0 group-hover:opacity-100">more_horiz</span>
+</div>
+<h4 class="text-sm font-bold text-gray-900 dark:text-white mb-2">API Integration for Stripe Payments</h4>
+<div class="w-full bg-gray-100 dark:bg-gray-700 rounded-full h-1.5 mb-3">
+<div class="bg-primary h-1.5 rounded-full" style="width: 65%"></div>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2 text-primary text-xs font-medium">
+<span class="material-symbols-outlined text-[14px]">schedule</span> 2 days left
+                                            </div>
+<div class="flex -space-x-1.5">
+<img class="w-6 h-6 rounded-full object-cover border border-white dark:border-[#1e1d2e]" data-alt="Assignee portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUz0gZnAU5CBuKz9HX5joKxfU-vyvL9uguRJct2viZ--xHfexlXdxqbmo4q72SlNdmjy1G7Y6ORTLYoC_SQ_R2DSxkJKC0GZwKRK5NudkAEZIq8LjKBYkPnbQPvVHhMlvQTC_cK2FdJUxcpig6HKh-d2rermqWWvtDRV4Ek4oEIZsT_Mv57kZCyMPgunSN7Ty3v0Un2uolKpCXmL0NcyLll-Fojwg56VapjrQafdsPeDpGyqSf2ruBqy_5vEfRsYgRQ7k9cBrKhT0"/>
+<img class="w-6 h-6 rounded-full object-cover border border-white dark:border-[#1e1d2e]" data-alt="Assignee portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXNIjjTuh_DHeHJTjpUCc80XbtoC4ZopxJacGAZOKimz-0zXikcukVcZ6ZX1MSlUKdmygZn5u8M652a5azwK0N-SYO7HnW3UdD2s4SO_RQG5Zy1FTh4WXqREi2nwEDEg8lm2iWU6A6YBXzxbJrs6XH82JDfGfkWl_Z_p-iLamfWq3COCrh8w6kVa3yxaRVz8FOF0NMbTOUjuKwkz7atpl8bkBbdOhe7pz-47nAtWyL8y3aVN-IYBwqmaViBkIJoJFD8pwUGW8rouo"/>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-white dark:bg-[#1e1d2e] p-4 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 hover:shadow-md transition-shadow cursor-pointer group">
+<!-- Image Attachment Preview -->
+<div class="w-full h-24 rounded-lg bg-cover bg-center mb-3" data-alt="Abstract gradient dashboard preview" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA4zm_OUiETTzA6f7h4zCD6plU8-q21xZedAgA8VGnLSQ0z13ziiwmN-M3aUQZHChCrDT-uMZPiSP7u8ntESlPelYrSfqB91_grkUMhV7iL2A0x42meXaYEiZw_LXtQFhyvu1WXUENMoSX8STQvOPRrPLWm4juS1y1wy_eOvrEwYOs1RdK-AByksZrYt_-Fq3vGb39KuTIIXJtrDQOBIMZvmvPzgpCk1YMUELe6pUqiBhUtsESA8MoPNcKq4bKCb4byHu5hQ2_lzV4');"></div>
+<h4 class="text-sm font-bold text-gray-900 dark:text-white mb-2">Dashboard Analytics View</h4>
+<div class="flex items-center justify-between mt-3">
+<div class="flex items-center gap-1 text-gray-400 text-xs">
+<span class="material-symbols-outlined text-[14px]">check_box</span> 4/12
+                                            </div>
+<div class="w-6 h-6 rounded-full bg-green-100 text-green-600 flex items-center justify-center text-[10px] font-bold">MK</div>
+</div>
+</div>
+</div>
+<!-- Column 3: Review -->
+<div class="flex flex-col gap-3 min-w-[280px]">
+<div class="flex items-center justify-between px-1 mb-1">
+<span class="text-sm font-bold text-gray-500 uppercase tracking-wider flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-green-400"></span> Review
+                                        </span>
+<span class="text-xs font-medium px-2 py-0.5 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300">4</span>
+</div>
+<!-- Card 1 -->
+<div class="bg-white dark:bg-[#1e1d2e] p-4 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 hover:shadow-md transition-shadow cursor-pointer group">
+<div class="flex justify-between items-start mb-2">
+<span class="text-xs font-semibold px-2 py-1 rounded bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-300">Bug Fix</span>
+</div>
+<h4 class="text-sm font-bold text-gray-900 dark:text-white mb-2">Login session timeout issue</h4>
+<div class="flex items-center justify-between mt-3">
+<div class="flex items-center gap-1 text-red-500 text-xs font-medium">
+<span class="material-symbols-outlined text-[14px]">warning</span> Critical
+                                            </div>
+<img class="w-6 h-6 rounded-full object-cover" data-alt="Assignee portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnASk0CxXy2IDy3z_Km2KlqADGzb4hRNw6QfCPKLqFekHQYoufaTrUA35sD5PMKR3ASazXa2NAK6pKzMviP9MPdiDpqaD6PsmuLfHxZW86HzJHGS47XCZfwzbKyJFJwt9deuYPqohvpeonR2kt2KTl5q90SGrAS4HV6kIv8iQPBZvy0t_3v-AO0i0omhVtyV7QSRcO6pY-pI4haNppqmNTjv1Kv20NAauarZ8esbYn_83uRU0Gf8UqWNHV6tI05OxMiP639LslxAo"/>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-white dark:bg-[#1e1d2e] p-4 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 hover:shadow-md transition-shadow cursor-pointer group">
+<h4 class="text-sm font-bold text-gray-900 dark:text-white mb-2">Update Terms of Service</h4>
+<div class="flex items-center justify-between mt-3">
+<div class="flex items-center gap-1 text-gray-400 text-xs">
+<span class="material-symbols-outlined text-[14px]">calendar_month</span> Oct 24
+                                            </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Divider -->
+<div class="w-full h-px bg-gradient-to-r from-transparent via-gray-200 dark:via-gray-800 to-transparent"></div>
+<!-- Process / How it works Section -->
+<section class="w-full max-w-[1280px] px-4 md:px-8 py-20 bg-background-light dark:bg-background-dark">
+<div class="flex flex-col items-center mb-16 text-center">
+<h2 class="text-primary font-bold text-lg mb-2 uppercase tracking-wide">How It Works</h2>
+<h3 class="text-3xl md:text-4xl font-black text-gray-900 dark:text-white">Get started in minutes</h3>
+<p class="mt-4 text-gray-600 dark:text-gray-400 max-w-2xl">
+                        Three simple steps to streamline your project management workflow and get your team aligned.
+                    </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+<!-- Connecting line for desktop -->
+<div class="hidden md:block absolute top-8 left-[16%] right-[16%] h-0.5 bg-gray-200 dark:bg-gray-800 -z-0"></div>
+<!-- Step 1 -->
+<div class="flex flex-col items-center text-center relative z-10 group">
+<div class="w-16 h-16 rounded-full bg-surface-light dark:bg-surface-dark border-4 border-gray-100 dark:border-gray-800 group-hover:border-primary/30 transition-colors flex items-center justify-center mb-6 shadow-sm">
+<div class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center text-xl font-bold shadow-lg shadow-primary/40">1</div>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 w-full h-full hover:shadow-md transition-shadow">
+<div class="mb-4 text-primary bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mx-auto">
+<span class="material-symbols-outlined">domain_add</span>
+</div>
+<h4 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Create Workspace</h4>
+<p class="text-gray-600 dark:text-gray-400 leading-relaxed text-sm">
+                                Set up your organization in seconds with our pre-built templates designed specifically for agile and creative teams.
+                            </p>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="flex flex-col items-center text-center relative z-10 group">
+<div class="w-16 h-16 rounded-full bg-surface-light dark:bg-surface-dark border-4 border-gray-100 dark:border-gray-800 group-hover:border-primary/30 transition-colors flex items-center justify-center mb-6 shadow-sm">
+<div class="w-10 h-10 rounded-full bg-white dark:bg-gray-700 text-gray-900 dark:text-white border border-gray-200 dark:border-gray-600 flex items-center justify-center text-xl font-bold shadow-sm group-hover:bg-primary group-hover:text-white group-hover:border-transparent transition-colors">2</div>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 w-full h-full hover:shadow-md transition-shadow">
+<div class="mb-4 text-primary bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mx-auto">
+<span class="material-symbols-outlined">group_add</span>
+</div>
+<h4 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Invite Team</h4>
+<p class="text-gray-600 dark:text-gray-400 leading-relaxed text-sm">
+                                Add your colleagues and assign roles with a single secure link. No complex permissions needed to get started.
+                            </p>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="flex flex-col items-center text-center relative z-10 group">
+<div class="w-16 h-16 rounded-full bg-surface-light dark:bg-surface-dark border-4 border-gray-100 dark:border-gray-800 group-hover:border-primary/30 transition-colors flex items-center justify-center mb-6 shadow-sm">
+<div class="w-10 h-10 rounded-full bg-white dark:bg-gray-700 text-gray-900 dark:text-white border border-gray-200 dark:border-gray-600 flex items-center justify-center text-xl font-bold shadow-sm group-hover:bg-primary group-hover:text-white group-hover:border-transparent transition-colors">3</div>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 w-full h-full hover:shadow-md transition-shadow">
+<div class="mb-4 text-primary bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mx-auto">
+<span class="material-symbols-outlined">rocket_launch</span>
+</div>
+<h4 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Start Building</h4>
+<p class="text-gray-600 dark:text-gray-400 leading-relaxed text-sm">
+                                Create your first board, add tasks, and start moving items to 'Done' immediately. Watch your productivity soar.
+                            </p>
+</div>
+</div>
+</div>
+<div class="mt-16 text-center">
+<button class="bg-primary hover:bg-primary-dark text-white text-lg font-bold py-4 px-10 rounded-full shadow-xl shadow-primary/25 transform transition hover:-translate-y-1">
+                        Start Your Free Trial
+                    </button>
+<p class="mt-4 text-sm text-gray-500 dark:text-gray-500">No credit card required • 14-day free trial</p>
+</div>
+</section>
+</main>
+<!-- Simple Footer -->
+<footer class="bg-surface-light dark:bg-surface-dark border-t border-gray-200 dark:border-gray-800 py-10">
+<div class="max-w-[1280px] mx-auto px-4 md:px-8 text-center text-gray-500 dark:text-gray-400 text-sm">
+<p>© 2024 TaskMaster Inc. All rights reserved.</p>
+</div>
+</footer>
+</div>
+</body></html>

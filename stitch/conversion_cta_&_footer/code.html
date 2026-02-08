@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ProjectTool - Scale Your Management</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#5048e5",
+                        "primary-dark": "#3f38b5",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#121121",
+                        "slate-900": "#0f172a",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white antialiased overflow-x-hidden">
+<!-- Main Wrapper -->
+<div class="flex flex-col min-h-screen">
+<!-- CTA Section -->
+<section class="bg-slate-900 py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+<!-- Decorative gradient blur -->
+<div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">
+<div class="absolute -top-[20%] -right-[10%] w-[600px] h-[600px] rounded-full bg-primary/20 blur-[100px]"></div>
+<div class="absolute -bottom-[20%] -left-[10%] w-[500px] h-[500px] rounded-full bg-indigo-900/40 blur-[100px]"></div>
+</div>
+<div class="relative z-10 max-w-4xl mx-auto text-center">
+<h2 class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl mb-6">
+                    Ready to scale your management?
+                </h2>
+<p class="mx-auto mt-4 max-w-2xl text-lg text-slate-300 mb-10">
+                    Join 10,000+ teams organizing their work with us. Start your 14-day free trial today. No credit card required.
+                </p>
+<div class="flex flex-col sm:flex-row justify-center gap-4">
+<button class="inline-flex items-center justify-center h-14 px-8 rounded-full bg-primary hover:bg-primary-dark text-white font-semibold text-lg transition-colors duration-200 shadow-lg shadow-indigo-500/30">
+                        Get Started
+                        <span class="material-symbols-outlined ml-2 text-[20px]">arrow_forward</span>
+</button>
+<button class="inline-flex items-center justify-center h-14 px-8 rounded-full bg-white/10 hover:bg-white/20 text-white font-semibold text-lg transition-colors duration-200 backdrop-blur-sm border border-white/10">
+                        View Demo
+                    </button>
+</div>
+<p class="mt-6 text-sm text-slate-400">
+                    Trusted by industry leaders worldwide
+                </p>
+<div class="mt-4 flex justify-center gap-6 opacity-40 grayscale">
+<!-- Simple svg logos for trust indicators -->
+<div class="h-8 w-auto text-white flex items-center font-bold text-xl"><span class="material-symbols-outlined mr-1">diamond</span>Acme</div>
+<div class="h-8 w-auto text-white flex items-center font-bold text-xl"><span class="material-symbols-outlined mr-1">all_inclusive</span>Infinite</div>
+<div class="h-8 w-auto text-white flex items-center font-bold text-xl"><span class="material-symbols-outlined mr-1">bolt</span>Energy</div>
+<div class="hidden sm:flex h-8 w-auto text-white items-center font-bold text-xl"><span class="material-symbols-outlined mr-1">change_history</span>Triangle</div>
+</div>
+</div>
+</section>
+<!-- Footer Section -->
+<footer class="bg-white dark:bg-[#1a192e] pt-16 pb-8 border-t border-slate-200 dark:border-slate-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-12">
+<!-- Brand Column -->
+<div class="lg:col-span-4">
+<div class="flex items-center gap-3 text-slate-900 dark:text-white mb-6">
+<div class="size-8 text-primary">
+<svg class="w-full h-full" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M13.8261 30.5736C16.7203 29.8826 20.2244 29.4783 24 29.4783C27.7756 29.4783 31.2797 29.8826 34.1739 30.5736C36.9144 31.2278 39.9967 32.7669 41.3563 33.8352L24.8486 7.36089C24.4571 6.73303 23.5429 6.73303 23.1514 7.36089L6.64374 33.8352C8.00331 32.7669 11.0856 31.2278 13.8261 30.5736Z" fill="currentColor"></path>
+<path clip-rule="evenodd" d="M39.998 35.764C39.9944 35.7463 39.9875 35.7155 39.9748 35.6706C39.9436 35.5601 39.8949 35.4259 39.8346 35.2825C39.8168 35.2403 39.7989 35.1993 39.7813 35.1602C38.5103 34.2887 35.9788 33.0607 33.7095 32.5189C30.9875 31.8691 27.6413 31.4783 24 31.4783C20.3587 31.4783 17.0125 31.8691 14.2905 32.5189C12.0012 33.0654 9.44505 34.3104 8.18538 35.1832C8.17384 35.2075 8.16216 35.233 8.15052 35.2592C8.09919 35.3751 8.05721 35.4886 8.02977 35.589C8.00356 35.6848 8.00039 35.7333 8.00004 35.7388C8.00004 35.739 8 35.7393 8.00004 35.7388C8.00004 35.7641 8.0104 36.0767 8.68485 36.6314C9.34546 37.1746 10.4222 37.7531 11.9291 38.2772C14.9242 39.319 19.1919 40 24 40C28.8081 40 33.0758 39.319 36.0709 38.2772C37.5778 37.7531 38.6545 37.1746 39.3151 36.6314C39.9006 36.1499 39.9857 35.8511 39.998 35.764ZM4.95178 32.7688L21.4543 6.30267C22.6288 4.4191 25.3712 4.41909 26.5457 6.30267L43.0534 32.777C43.0709 32.8052 43.0878 32.8338 43.104 32.8629L41.3563 33.8352C43.104 32.8629 43.1038 32.8626 43.104 32.8629L43.1051 32.865L43.1065 32.8675L43.1101 32.8739L43.1199 32.8918C43.1276 32.906 43.1377 32.9246 43.1497 32.9473C43.1738 32.9925 43.2062 33.0545 43.244 33.1299C43.319 33.2792 43.4196 33.489 43.5217 33.7317C43.6901 34.1321 44 34.9311 44 35.7391C44 37.4427 43.003 38.7775 41.8558 39.7209C40.6947 40.6757 39.1354 41.4464 37.385 42.0552C33.8654 43.2794 29.133 44 24 44C18.867 44 14.1346 43.2794 10.615 42.0552C8.86463 41.4464 7.30529 40.6757 6.14419 39.7209C4.99695 38.7775 3.99999 37.4427 3.99999 35.7391C3.99999 34.8725 4.29264 34.0922 4.49321 33.6393C4.60375 33.3898 4.71348 33.1804 4.79687 33.0311C4.83898 32.9556 4.87547 32.8935 4.9035 32.8471C4.91754 32.8238 4.92954 32.8043 4.93916 32.7889L4.94662 32.777L4.95178 32.7688ZM35.9868 29.004L24 9.77997L12.0131 29.004C12.4661 28.8609 12.9179 28.7342 13.3617 28.6282C16.4281 27.8961 20.0901 27.4783 24 27.4783C27.9099 27.4783 31.5719 27.8961 34.6383 28.6282C35.082 28.7342 35.5339 28.8609 35.9868 29.004Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<span class="text-xl font-bold tracking-tight">ProjectTool</span>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-base leading-relaxed mb-6 max-w-xs">
+                            Streamline your workflow with the all-in-one platform designed for modern agile teams. Scale without the chaos.
+                        </p>
+<!-- Newsletter Input -->
+<div class="mt-4">
+<label class="sr-only" for="email-address">Email address</label>
+<form class="flex gap-2 max-w-sm">
+<input autocomplete="email" class="min-w-0 flex-auto rounded-full border-0 bg-slate-100 dark:bg-slate-800 px-4 py-2.5 text-slate-900 dark:text-white shadow-sm ring-1 ring-inset ring-slate-300 dark:ring-slate-700 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6" id="email-address" name="email" placeholder="Enter your email" required="" type="email"/>
+<button class="flex-none rounded-full bg-primary px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary" type="submit">
+<span class="material-symbols-outlined text-[20px]">send</span>
+</button>
+</form>
+<p class="mt-2 text-xs text-slate-500">Subscribe to our newsletter for updates.</p>
+</div>
+</div>
+<!-- Sitemap Links -->
+<div class="lg:col-span-8 grid grid-cols-2 md:grid-cols-3 gap-8 mt-8 lg:mt-0">
+<div>
+<h3 class="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider mb-4">Product</h3>
+<ul class="space-y-3" role="list">
+<li><a class="text-base text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors" href="#">Features</a></li>
+<li><a class="text-base text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors" href="#">Pricing</a></li>
+<li><a class="text-base text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors" href="#">Integrations</a></li>
+<li><a class="text-base text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors" href="#">Changelog</a></li>
+<li><a class="text-base text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors" href="#">Docs</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider mb-4">Company</h3>
+<ul class="space-y-3" role="list">
+<li><a class="text-base text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors" href="#">About Us</a></li>
+<li><a class="text-base text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors" href="#">Careers</a></li>
+<li><a class="text-base text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors" href="#">Blog</a></li>
+<li><a class="text-base text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors" href="#">Contact</a></li>
+<li><a class="text-base text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors" href="#">Partners</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider mb-4">Resources</h3>
+<ul class="space-y-3" role="list">
+<li><a class="text-base text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors" href="#">Community</a></li>
+<li><a class="text-base text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors" href="#">Help Center</a></li>
+<li><a class="text-base text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors" href="#">Webinars</a></li>
+<li><a class="text-base text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors" href="#">Status</a></li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Footer Bottom: Legal & Social -->
+<div class="pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-sm text-slate-500 dark:text-slate-400 text-center md:text-left">
+                        © 2023 ProjectTool Inc. All rights reserved. 
+                        <span class="hidden sm:inline mx-2 text-slate-300 dark:text-slate-700">|</span>
+<a class="hover:text-primary" href="#">Privacy Policy</a>
+<span class="mx-2 text-slate-300 dark:text-slate-700">|</span>
+<a class="hover:text-primary" href="#">Terms of Service</a>
+</p>
+<div class="flex space-x-6">
+<a class="text-slate-400 hover:text-primary dark:hover:text-white transition-colors" href="#">
+<span class="sr-only">Twitter</span>
+<span class="material-symbols-outlined text-[24px]">flutter</span> <!-- Using flutter as a stylized bird-like icon alternative -->
+</a>
+<a class="text-slate-400 hover:text-primary dark:hover:text-white transition-colors" href="#">
+<span class="sr-only">GitHub</span>
+<span class="material-symbols-outlined text-[24px]">code</span>
+</a>
+<a class="text-slate-400 hover:text-primary dark:hover:text-white transition-colors" href="#">
+<span class="sr-only">LinkedIn</span>
+<span class="material-symbols-outlined text-[24px]">group_work</span>
+</a>
+<a class="text-slate-400 hover:text-primary dark:hover:text-white transition-colors" href="#">
+<span class="sr-only">Facebook</span>
+<span class="material-symbols-outlined text-[24px]">public</span>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+</body></html>
