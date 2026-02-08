@@ -1,4 +1,4 @@
-import { NextFunction, Request, Response } from "express";
+import { NextFunction, Request, Response, RequestHandler } from "express";
 
 type AyncControllerType = (
   req: Request,
@@ -7,7 +7,7 @@ type AyncControllerType = (
 ) => Promise<any>;
 
 export const asyncHandler =
-  (controller: AyncControllerType): AyncControllerType =>
+  (controller: AyncControllerType): RequestHandler =>
   async (req, res, next) => {
     try {
       await controller(req, res, next);

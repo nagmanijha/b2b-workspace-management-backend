@@ -1,3 +1,6 @@
+import { Request, Response, NextFunction } from "express";
+import { UnauthorizedException } from "../utils/appError";
+
 const isAuthenticated = (req: Request, res: Response, next: NextFunction) => {
   console.log("Checking Authentication...");
   // console.log("Cookies:", req.session); 
